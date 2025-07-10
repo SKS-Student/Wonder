@@ -1,4 +1,4 @@
-# A-Eyes
+# Wonder
 This is the Entrepreneurship Project and passion project to help visually impaired individuals
 
 We are currently in the process of developing our website highlighting key milestones, features, and more
