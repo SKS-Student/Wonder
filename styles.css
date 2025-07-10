@@ -6,9 +6,17 @@ body {
     display: flex;
     flex-direction: column; /* Flexbox layout for the body */
     min-height: 100vh; /* Ensure the body takes the full viewport height */
+    background-image: url('./Images/background.png');
+    background-size: cover;      /* Scales image to cover entire screen */
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-header {
+.hero .wonderText{
+    font-size: 5rem;
+}
+
+header { 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,7 +30,11 @@ header {
 header .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    color: whitesmoke;
+    text-decoration: none;
 }
+
+
 
 nav a {
     margin: 0 1rem;
@@ -37,20 +49,25 @@ nav a:hover {
 
 .hero {
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 10rem 1rem;
     flex: 1; /* Makes the main content area grow to fill space when needed */
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.hero p {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
 }
 
 .hero button {
     background-color: #2563eb;
     color: #f8fafc;
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 1.75rem;
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
@@ -63,7 +80,7 @@ nav a:hover {
 
 footer {
     text-align: center;
-    padding: 1rem;
+    padding: 0.5rem;
     background-color: #1e293b;
     margin-top: auto; /* Pushes the footer to the bottom if content is short */
 }
@@ -83,12 +100,14 @@ footer {
 
 .member {
     cursor: pointer;
-    width: 200px;
+    width: 600px;
+    margin-left: 5rem;
+    margin-right:5rem;
     text-align: center;
 }
 
 .member img {
-    width: 100%;
+    width: 50%;
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
@@ -148,12 +167,17 @@ footer {
     padding: 2rem;
 }
 
+.features h1{
+    margin-top:0rem;
+   color:whitesmoke;
+}
+
 .slideshow {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 7rem;
+    margin-top: 22.5rem;
     margin-bottom: 5rem;
 }
 
@@ -164,19 +188,26 @@ footer {
     position: absolute;
     width: 80%;
     text-align: center;
-    background-color: #2563eb;
+    background-color: #1e293b;
     color: #f8fafc;
-    padding: 2rem;
+    padding: 0.5rem 1.75rem 1rem 1.75rem;
+    display: none;
     border-radius: 10px;
 }
 
 .slide.active {
     opacity: 1;
     transform: translateY(0);
+    display: block;
+}
+
+.slide p{
+    padding-right: 5rem;
+    padding-left: 5rem;
 }
 
 button.left-arrow, button.right-arrow {
-    background-color: #1e293b;
+    background-color: #2563eb;
     color: #f8fafc;
     border: none;
     padding: 0.75rem 1rem;
@@ -223,6 +254,8 @@ button.down-arrow:hover {
     padding: 2rem;
 }
 
+
+
 #blog-container {
     max-width: 800px;
     margin: 0 auto;
@@ -263,4 +296,12 @@ button.down-arrow:hover {
 
 #add-blog:hover {
     background-color: #1d4ed8;
+}
+
+
+.linkden {
+    color: whitesmoke;
+}
+.linkden:hover {
+    color: #38bdf8;
 }

@@ -1,131 +1,124 @@
-// JavaScript for About Us page - Popup functionality
 document.addEventListener("DOMContentLoaded", () => {
-    const members = document.querySelectorAll(".member");
+    // Popup elements shared across all pages
     const popup = document.getElementById("popup");
     const popupText = document.getElementById("popup-text");
     const closePopup = document.getElementById("close-popup");
 
-    members.forEach(member => {
-        member.addEventListener("click", () => {
-            const description = member.getAttribute("data-description");
-            popupText.textContent = description;
-            popup.classList.add("visible");
+    // ✅ About Page
+    const members = document.querySelectorAll(".member");
+    if (members.length > 0) {
+        members.forEach((member) => {
+            member.addEventListener("click", () => {
+                const description = member.getAttribute("data-description");
+                popupText.innerHTML = description;
+                popup.classList.add("visible");
+            });
         });
-    });
+    }
 
-    closePopup.addEventListener("click", () => {
-        popup.classList.remove("visible");
-    });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Features Page Slideshow and Popup
+    // ✅ Features Page
     const slides = document.querySelectorAll(".slide");
     const leftArrow = document.querySelector(".left-arrow");
     const rightArrow = document.querySelector(".right-arrow");
-    const popup = document.getElementById("popup");
-    const popupText = document.getElementById("popup-text");
-    const closePopup = document.getElementById("close-popup");
+    const slideshow = document.querySelector(".slideshow");
 
-    let currentSlideIndex = 0;
-    let slideshowInterval; // For automatic slide transition
+    if (slides.length > 0 && leftArrow && rightArrow && slideshow) {
+        let currentSlideIndex = 0;
+        let slideshowInterval;
 
-    const showSlide = (index) => {
-        slides.forEach((slide, i) => {
-            slide.classList.remove("active");
-            if (i === index) {
-                slide.classList.add("active");
-            }
+        const showSlide = (index) => {
+            slides.forEach((slide, i) => {
+                slide.classList.remove("active");
+                if (i === index) {
+                    slide.classList.add("active");
+                }
+            });
+        };
+
+        const startSlideshow = () => {
+            slideshowInterval = setInterval(() => {
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                showSlide(currentSlideIndex);
+            }, 5000);
+        };
+
+        leftArrow.addEventListener("click", () => {
+            clearInterval(slideshowInterval);
+            currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+            showSlide(currentSlideIndex);
+            startSlideshow();
         });
-    };
 
-    // Automatic slideshow - moves to the next slide every 5 seconds
-    const startSlideshow = () => {
-        slideshowInterval = setInterval(() => {
+        rightArrow.addEventListener("click", () => {
+            clearInterval(slideshowInterval);
             currentSlideIndex = (currentSlideIndex + 1) % slides.length;
             showSlide(currentSlideIndex);
-        }, 5000); // 5000ms = 5 seconds
-    };
-
-    // Navigate slides manually with arrows
-    leftArrow.addEventListener("click", () => {
-        clearInterval(slideshowInterval); // Stop auto-sliding when manually navigating
-        currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length; // Loop to last slide
-        showSlide(currentSlideIndex);
-        startSlideshow(); // Restart auto-sliding
-    });
-
-    rightArrow.addEventListener("click", () => {
-        clearInterval(slideshowInterval); // Stop auto-sliding when manually navigating
-        currentSlideIndex = (currentSlideIndex + 1) % slides.length; // Loop to first slide
-        showSlide(currentSlideIndex);
-        startSlideshow(); // Restart auto-sliding
-    });
-
-    // Open popup with feature description on slide click
-    slides.forEach((slide) => {
-        slide.addEventListener("click", () => {
-            popupText.textContent = slide.getAttribute("data-description");
-            popup.classList.add("visible");
+            startSlideshow();
         });
-    });
 
-    // Close popup
-    closePopup.addEventListener("click", () => {
-        popup.classList.remove("visible");
-    });
+        slides.forEach((slide, index) => {
+            slide.addEventListener("click", () => {
+                if (slide.classList.contains("active")) {
+                    const description = slide.getAttribute("data-description");
+                    popupText.innerHTML = description;
+                    popup.classList.add("visible");
+                }
+            });
+        });
 
-    // Initialize
-    showSlide(currentSlideIndex);
-    startSlideshow(); // Start automatic slide transition
-});
+        showSlide(currentSlideIndex);
+        startSlideshow();
+    }
 
-
-// JavaScript for dynamically adding blog entries
-document.addEventListener("DOMContentLoaded", () => {
+    // ✅ Blog Page
     const blogContainer = document.getElementById("blog-container");
     const addBlogButton = document.getElementById("add-blog");
 
-    // Example blog entries
-    const blogs = [
-        {
-            title: "Exciting New Feature Update",
-            content: "We've launched our latest feature for seamless AR interactions.",
-            image: "update1.jpg", // Replace with actual image path
-        },
-        {
-            title: "Release Notes - March 2025",
-            content: "This update includes performance improvements and bug fixes.",
-            image: "update2.jpg", // Replace with actual image path
-        },
-    ];
+    if (blogContainer && addBlogButton) {
+        const blogs = [
+            {
+                title: "Exciting New Feature Update",
+                content: "We've launched our latest feature for seamless AR interactions.",
+                image: "update1.jpg",
+            },
+            {
+                title: "Release Notes - March 2025",
+                content: "This update includes performance improvements and bug fixes.",
+                image: "update2.jpg",
+            },
+        ];
 
-    // Function to render blogs
-    const renderBlogs = () => {
-        blogContainer.innerHTML = ""; // Clear the container
-        blogs.forEach((blog, index) => {
-            const blogEntry = document.createElement("div");
-            blogEntry.classList.add("blog-entry");
-            blogEntry.innerHTML = `
-                <img src="${blog.image}" alt="Blog Image">
-                <h2>${blog.title}</h2>
-                <p>${blog.content}</p>
-            `;
-            blogContainer.appendChild(blogEntry);
-        });
-    };
-
-    // Add a new blog dynamically
-    addBlogButton.addEventListener("click", () => {
-        const newBlog = {
-            title: "New Blog Title",
-            content: "This is the content of the new blog. Update it as needed.",
-            image: "default.jpg", // Replace with a default or placeholder image
+        const renderBlogs = () => {
+            blogContainer.innerHTML = "";
+            blogs.forEach((blog) => {
+                const blogEntry = document.createElement("div");
+                blogEntry.classList.add("blog-entry");
+                blogEntry.innerHTML = `
+                    <img src="${blog.image}" alt="Blog Image">
+                    <h2>${blog.title}</h2>
+                    <p>${blog.content}</p>
+                `;
+                blogContainer.appendChild(blogEntry);
+            });
         };
-        blogs.push(newBlog); // Add new blog to the array
-        renderBlogs(); // Re-render the blogs
-    });
 
-    renderBlogs(); // Initial rendering
+        addBlogButton.addEventListener("click", () => {
+            const newBlog = {
+                title: "New Blog Title",
+                content: "This is the content of the new blog. Update it as needed.",
+                image: "default.jpg",
+            };
+            blogs.push(newBlog);
+            renderBlogs();
+        });
+
+        renderBlogs();
+    }
+
+    // ✅ Close popup globally
+    if (closePopup) {
+        closePopup.addEventListener("click", () => {
+            popup.classList.remove("visible");
+        });
+    }
 });

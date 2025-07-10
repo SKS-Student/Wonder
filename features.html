@@ -9,11 +9,14 @@
 </head>
 <body>
     <header>
-        <div class="logo">SmartGlass</div>
+        <a href="index.html" class="logo">Wonder</a>
         <nav>
             <a href="index.html">Home</a>
+            <a>∘</a>
             <a href="about.html">About Us</a>
+            <a>∘</a>
             <a href="updates.html">Updates</a>
+            <a>∘</a>
             <a href="features.html">Features</a>
         </nav>
     </header>
@@ -21,15 +24,48 @@
         <h1>Features</h1>
         <div class="slideshow">
             <button class="left-arrow">&#8592;</button>
-            <div class="slide active" data-description="Augmented Reality: Redefine how you interact with the world.">
-                <p>Augmented Reality</p>
+            <div class="slide active" data-description="Object Avoidance: Navigate with precision and safety.<br>">
+                <h3>Object Avoidance</h3>
+                <p>Our device uses a custom object detection pipeline built with OpenCV and MobileNet-SSD to identify nearby obstacles in real time. When a potential hazard is detected, the system delivers immediate voice feedback to alert the user, enabling them to safely navigate their environment without needing visual input.</p>
+                <img style="width: 40rem; height: 30rem;" src="./Images/objectDistance.png" alt="Object Avoidance Image">
             </div>
-            <div class="slide" data-description="Advanced Voice Controls: Effortless communication at your fingertips.">
-                <p>Voice Controls</p>
+
+            <div class="slide" data-description="Voice Controls: Effortless communication at your fingertips.<br>">
+                <h3>Voice Controls</h3>
+                <p>Using Google's Speech Recognition library, users can control the device hands-free through simple voice commands. This allows for smooth interaction with core functions such as object detection, reading text, and accessing the AI chatbot, significantly enhancing independence and ease of use.</p>
+                <img style="width: 50rem; height: 30rem;" src="" alt="Voice Controls Image">
             </div>
-            <div class="slide" data-description="Seamless Connectivity: Sync seamlessly with your devices.">
-                <p>Connectivity</p>
+
+            <div class="slide" data-description="Connectivity: Sync seamlessly with your devices.<br>">
+                <h3>Connectivity</h3>
+                <p>The device offers seamless connectivity with smartphones and other smart devices, ensuring updates and interactions can occur wirelessly. This allows users or caregivers to sync data, adjust settings, or integrate with additional assistive technologies with minimal friction.</p>
+                <img style="width: 50rem; height: 30rem;" src="" alt="Connectivity Image">
             </div>
+
+            <div class="slide" data-description="AI Chatbot: Smart conversations powered by artificial intelligence.<br>">
+                <h3>AI Chatbot</h3>
+                <p>Powered by DialoGPT, our AI chatbot enables users to have natural, helpful conversations with the device. It guides them through different functions, answers questions, and improves accessibility by offering a friendly, conversational interface that makes the experience more intuitive.</p>
+                <img style="width: 50rem; height: 30rem;" src="" alt="AI Chatbot Image">
+            </div>
+
+            <div class="slide" data-description="360° Vision: Complete awareness in every direction.<br>">
+                <h3>360° Vision</h3>
+                <p>360° vision is a planned future enhancement that will utilize an array of cameras to give users full environmental awareness. This feature will further improve safety and orientation by offering real-time alerts from all directions, helping users avoid hazards from behind or side angles.</p>
+                <img style="width: 50rem; height: 30rem;" src="" alt="360 Vision Image">
+            </div>  
+
+            <div class="slide" data-description="Augmented Reality: Redefine how you interact with the world.<br>">
+                <h3>Augmented Reality</h3>
+                <p>Augmented Reality integration is part of our future roadmap. It aims to overlay contextual information into the user's auditory space, providing directional cues, object descriptions, or location-based alerts, thereby transforming how visually impaired users perceive and navigate the world.</p>
+                <img style="width: 50rem; height: 30rem;" src="" alt="Augmented Reality Image">
+            </div>
+
+            <div class="slide" data-description="Reading: Access and enjoy content with ease.<br>">
+                <h3>Reading</h3>
+                <p>To assist with reading printed or digital text, the device uses OCR technology via Tesseract to detect and extract text, which is then converted into speech using Microsoft Azure’s advanced Text-to-Speech service. This enables users to listen to books, signs, and labels instantly and independently.</p>
+                <img style="width: 50rem; height: 30rem;" src="./Images/textReading.png" alt="Reading Image">
+            </div>
+
             <button class="right-arrow">&#8594;</button>
         </div>
     </main>
@@ -40,7 +76,7 @@
         </div>
     </div>
     <footer>
-        <p>&copy; 2025 SmartGlass Inc. All Rights Reserved.</p>
+        <p>&copy; 2025 Wonder Inc. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
